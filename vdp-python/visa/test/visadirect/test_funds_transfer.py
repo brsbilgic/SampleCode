@@ -12,37 +12,42 @@ class TestFundsTransfer(unittest.TestCase):
         date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
         self.visa_api_client = VisaAPIClient()
         self.push_funds_request = json.loads('''{
-            "systemsTraceAuditNumber": 350420,
-            "retrievalReferenceNumber": "401010350420",
-            "localTransactionDateTime": "'''+ date + '''",
-            "acquiringBin": 409999,
-            "acquirerCountryCode": "101",
-            "senderAccountNumber": "1234567890123456",
-            "transactionCurrencyCode": "USD",
-            "senderName": "John Smith",
-            "senderCountryCode": "USA",
-            "senderAddress": "44 Market St.",
-            "senderCity": "San Francisco",
-            "senderStateCode": "CA",
-            "recipientName": "Adam Smith",
-            "recipientPrimaryAccountNumber": "4957030420210454",
-            "amount": "112.00",
+            "acquirerCountryCode": "840",
+            "acquiringBin": "408999",
+            "amount": "124.05",
             "businessApplicationId": "AA",
-            "transactionIdentifier": 234234322342343,
-            "merchantCategoryCode": 6012,
-            "sourceOfFundsCode": "03",
             "cardAcceptor": {
-              "name": "John Smith",
-              "terminalId": "13655392",
-              "idCode": "VMT200911026070",
-              "address": {
-                "state": "CA",
-                "county": "081",
-                "country": "USA",
-                "zipCode": "94105"
-              }
+            "address": {
+            "country": "USA",
+            "county": "San Mateo",
+            "state": "CA",
+            "zipCode": "94404"
             },
-            "feeProgramIndicator": "123"
+            "idCode": "CA-IDCode-77765",
+            "name": "Visa Inc. USA-Foster City",
+            "terminalId": "TID-9999"
+            },
+            "localTransactionDateTime": "2017-11-29T14:19:15",
+            "merchantCategoryCode": "6012",
+            "pointOfServiceData": {
+            "motoECIIndicator": "0",
+            "panEntryMode": "90",
+            "posConditionCode": "00"
+            },
+            "recipientName": "rohan",
+            "recipientPrimaryAccountNumber": "4957030420210462",
+            "retrievalReferenceNumber": "412770451018",
+            "senderAccountNumber": "4957030420210454",
+            "senderAddress": "901 Metro Center Blvd",
+            "senderCity": "Foster City",
+            "senderCountryCode": "124",
+            "senderName": "Mohammed Qasim",
+            "senderReference": "",
+            "senderStateCode": "CA",
+            "sourceOfFundsCode": "05",
+            "systemsTraceAuditNumber": "451018",
+            "transactionCurrencyCode": "USD",
+            "transactionIdentifier": "381228649430015"
         }''')
     
     def test_push_funds_transactions(self):
