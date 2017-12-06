@@ -11,7 +11,7 @@ class TestFundsTransfer(unittest.TestCase):
     def setUp(self):
         date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
         self.visa_api_client = VisaAPIClient()
-        self.push_funds_request = json.loads('''{
+        self.push_funds_request = {
             "acquirerCountryCode": "840",
             "acquiringBin": "408999",
             "amount": "124.05",
@@ -27,7 +27,7 @@ class TestFundsTransfer(unittest.TestCase):
             "name": "Visa Inc. USA-Foster City",
             "terminalId": "TID-9999"
             },
-            "localTransactionDateTime": "2017-11-29T14:19:15",
+            "localTransactionDateTime": date,
             "merchantCategoryCode": "6012",
             "pointOfServiceData": {
             "motoECIIndicator": "0",
@@ -48,7 +48,7 @@ class TestFundsTransfer(unittest.TestCase):
             "systemsTraceAuditNumber": "451018",
             "transactionCurrencyCode": "USD",
             "transactionIdentifier": "381228649430015"
-        }''')
+        }
     
     def test_push_funds_transactions(self):
         base_uri = 'visadirect/'
